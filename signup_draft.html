@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AgentPowered • Sign in</title>
+  <style>
+    :root {
+      --bg: #191E25;
+      --text: #e7ebf0;
+      --muted: #9aa3ad;
+      --stroke: #2e2e2e;
+      --card-bg: #1D232A;
+      --input-bg: #222931;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.45 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      overflow: hidden;
+    }
+
+    .wrap {
+      height: 100vh;
+      display: block;
+    }
+    .panel { position: relative; height: 100vh; width: 100%; }
+    .right { display: none; }
+
+    /* Left panel */
+    .left {
+      background: #191E25;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .logo-svg {
+      width: 40px;
+      margin-bottom: 20px;
+    }
+    .card {
+      width: min(380px, 88%);
+      background: var(--card-bg);
+      border: 1px solid var(--stroke);
+      border-radius: 16px;
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 16px 50px rgba(0,0,0,0.5);
+    }
+    h1 { font-size: 18px; margin: 12px 0 4px; }
+    .muted { color: var(--muted); margin: 0 0 18px; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0 14px; width: 100%; }
+    button, .btn {
+      border: 1px solid var(--stroke);
+      background: transparent;
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: var(--input-bg);
+    }
+    .divider { display: flex; align-items: center; text-align: center; color: var(--muted); font-size: 12px; margin: 8px 0 16px; width: 100%; }
+    .divider::before, .divider::after { content: ""; flex: 1; border-bottom: 1px solid var(--stroke); }
+    .divider:not(:empty)::before { margin-right: .75em; }
+    .divider:not(:empty)::after { margin-left: .75em; }
+    input[type="email"] {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--stroke);
+      background: var(--input-bg);
+      color: var(--text);
+    }
+    .primary {
+      background: #ffffff;
+      color: #000000;
+      margin-top: 12px;
+      border: none;
+      width: 100%;
+      transition: background 0.2s;
+    }
+    .primary:hover {
+      background: rgba(255,255,255,.75);
+    }
+    .footer { color: var(--muted); font-size: 12px; margin-top: 10px; }
+    .footer a { color: var(--text); text-decoration: none; font-weight: 600; }
+
+    .right { background: #0e1217; }
+    .image-wrap { position: absolute; inset: 0; }
+    .image-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
+    @media (min-width: 768px) and (max-width: 1279.98px) {
+      .right { display: none; }
+    }
+    @media (min-width: 1280px) {
+      body { overflow: hidden; }
+      .wrap { display: grid; grid-template-columns: 1fr 1fr; height: 100vh; }
+      .panel { height: 100vh; width: 100%; }
+      .right { display: block; }
+      .image-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="panel left">
+      <div class="logo-svg">
+        <svg width="100%" height="100%" viewBox="0 0 303 264" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M129.044 12.7237C139.119 -4.24124 163.679 -4.24122 173.754 12.7237L299.114 223.806C309.406 241.137 296.916 263.082 276.759 263.082H231.338C218.396 231.963 187.704 210.082 151.9 210.082C116.095 210.082 85.4021 231.963 72.4602 263.082H26.0403C5.88293 263.082 -6.60801 241.137 3.68481 223.806L129.044 12.7237ZM151.9 110.082C129.256 110.082 110.9 128.438 110.9 151.082C110.9 173.726 129.256 192.082 151.9 192.082C174.543 192.082 192.9 173.726 192.9 151.082C192.9 128.438 174.543 110.082 151.9 110.082Z" fill="white"/>
+        </svg>
+      </div>
+      <div class="card">
+        <h1>Sign in to AgentPowered</h1>
+        <p class="muted">Welcome back! Please sign in to continue</p>
+        <div class="row">
+          <button type="button">
+            <img src="https://i.imgur.com/Wfih0uh.png" alt="Google logo" width="16" height="16" />
+            Google
+          </button>
+          <button type="button">
+            <img src="https://i.imgur.com/6YsMHA2.png" alt="LinkedIn logo" width="16" height="16" />
+            LinkedIn
+          </button>
+        </div>
+        <div class="divider">or</div>
+        <input type="email" placeholder="Enter your email address" autocomplete="email" />
+        <button class="btn primary">Continue ▸</button>
+        <p class="footer">Don't have an account? <a href="#">Sign up</a></p>
+      </div>
+    </section>
+    <section class="panel right">
+      <div class="image-wrap">
+        <img src="https://i.imgur.com/ND8bw3Q.jpeg" alt="AgentPowered marketing visual" />
+      </div>
+    </section>
+  </main>
+</body>
+</html>
